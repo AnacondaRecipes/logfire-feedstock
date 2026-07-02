@@ -48,4 +48,5 @@ about:
   doc_url: https://docs.pydantic.dev/logfire
   summary: The best Python observability tool!
   license: MIT
+  license_family: MIT
   license_file: LICENSE
