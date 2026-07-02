@@ -47,6 +47,10 @@ about:
   dev_url: https://github.com/pydantic/logfire
   doc_url: https://docs.pydantic.dev/logfire
   summary: The best Python observability tool!
+  description: |
+    From the team behind Pydantic, Pydantic Logfire is an observability platform built on
+    OpenTelemetry. It provides structured logging, tracing, and metrics for Python applications
+    with seamless integrations for FastAPI, Django, SQLAlchemy, and more.
   license: MIT
   license_family: MIT
   license_file: LICENSE
