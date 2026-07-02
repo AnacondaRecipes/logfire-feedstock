@@ -18,11 +18,11 @@ build:
 
 requirements:
   host:
-    - python >=3.10
+    - python
     - hatchling
     - pip
   run:
-    - python >=3.10
+    - python
     - executing >=2.0.1
     - opentelemetry-sdk >=1.39.0,<1.43.0
     - opentelemetry-exporter-otlp-proto-http >=1.39.0,<1.43.0
