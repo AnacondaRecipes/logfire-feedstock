@@ -2,11 +2,11 @@
 {% set version = "4.37.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/logfire-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 7ee0cb64b59c356a41a1701fb84597037f8db1fa15df7a3715ef363e5a1de06a
 
 build:
