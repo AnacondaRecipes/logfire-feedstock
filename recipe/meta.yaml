@@ -2,36 +2,35 @@
 {% set version = "4.37.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/logfire-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 7ee0cb64b59c356a41a1701fb84597037f8db1fa15df7a3715ef363e5a1de06a
 
 build:
   entry_points:
     - logfire = logfire.cli:main
-  noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
+  skip: True  # [py<310]
 
 requirements:
   host:
-    - python >=3.8
+    - python
     - hatchling
     - pip
   run:
-    - typing_extensions >=4.1.0
+    - python
     - executing >=2.0.1
-    - python >=3.8
     - opentelemetry-sdk >=1.39.0,<1.43.0
     - opentelemetry-exporter-otlp-proto-http >=1.39.0,<1.43.0
     - opentelemetry-instrumentation >=0.41b0
-    - rich >=13.4.2
     - protobuf >=4.23.4
+    - rich >=13.4.2
+    - tomli >=2.0.1  # [py<311]
     - typing-extensions >=4.1.0
-    - tomli >=2.0.1
 
 test:
   imports:
@@ -46,11 +45,11 @@ about:
   home: https://github.com/pydantic/logfire
   dev_url: https://github.com/pydantic/logfire
   doc_url: https://docs.pydantic.dev/logfire
-  summary: The best Python observability tool! 🪵🔥
+  summary: The best Python observability tool!
+  description: |
+    From the team behind Pydantic, Pydantic Logfire is an observability platform built on
+    OpenTelemetry. It provides structured logging, tracing, and metrics for Python applications
+    with seamless integrations for FastAPI, Django, SQLAlchemy, and more.
   license: MIT
+  license_family: MIT
   license_file: LICENSE
-
-extra:
-  recipe-maintainers:
-    - Kludex
-    - samuelcolvin
