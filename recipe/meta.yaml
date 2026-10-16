@@ -1,5 +1,5 @@
 {% set name = "logfire" %}
-{% set version = "4.37.0" %}
+{% set version = "5.2.0" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 7ee0cb64b59c356a41a1701fb84597037f8db1fa15df7a3715ef363e5a1de06a
+  sha256: 5fb9ddda303759766e86f5704a1ae96f3a0072906d52e21fbaad2e3c3b03f823
 
 build:
   entry_points:
@@ -24,13 +24,49 @@ requirements:
   run:
     - python
     - executing >=2.0.1
-    - opentelemetry-sdk >=1.39.0,<1.43.0
-    - opentelemetry-exporter-otlp-proto-http >=1.39.0,<1.43.0
-    - opentelemetry-instrumentation >=0.41b0
+    - opentelemetry-api >=1.39.0,<1.46.0
+    - opentelemetry-sdk >=1.39.0,<1.46.0
+    - opentelemetry-exporter-otlp-proto-http >=1.39.0,<1.46.0
+    - opentelemetry-instrumentation >=0.41b0,<0.67b0
+    - opentelemetry-semantic-conventions >=0.60b0,<0.67b0
     - protobuf >=4.23.4
     - rich >=13.4.2
+    - requests >=2.31.0
     - tomli >=2.0.1  # [py<311]
-    - typing-extensions >=4.1.0
+    - typing-extensions >=4.13.0
+  run_constrained:
+    # Bounded optional-integration extras from upstream [project.optional-dependencies];
+    # unversioned litellm/dspy extras are no-ops here and are omitted.
+    - httpx >=0.27.2
+    - litestar >=2.11.0
+    - pydantic >=2.5
+    - pydantic-evals >=1.0.0
+    - pydantic-handlebars >=0.2.1
+    - starlette >=0.37.0
+    - uvicorn >=0.30.0
+    - opentelemetry-instrumentation-aiohttp-client >=0.42b0
+    - opentelemetry-instrumentation-aiohttp-server >=0.55b0
+    - opentelemetry-instrumentation-asgi >=0.42b0
+    - opentelemetry-instrumentation-asyncpg >=0.42b0
+    - opentelemetry-instrumentation-aws-lambda >=0.42b0
+    - opentelemetry-instrumentation-celery >=0.42b0
+    - opentelemetry-instrumentation-django >=0.42b0
+    - opentelemetry-instrumentation-fastapi >=0.42b0
+    - opentelemetry-instrumentation-flask >=0.42b0
+    - opentelemetry-instrumentation-google-genai >=1.0b0
+    - opentelemetry-instrumentation-httpx >=0.42b0
+    - opentelemetry-instrumentation-mysql >=0.42b0
+    - opentelemetry-instrumentation-psycopg >=0.42b0
+    - opentelemetry-instrumentation-psycopg2 >=0.42b0
+    - opentelemetry-instrumentation-pymongo >=0.42b0
+    - opentelemetry-instrumentation-redis >=0.42b0
+    - opentelemetry-instrumentation-requests >=0.42b0
+    - opentelemetry-instrumentation-sqlalchemy >=0.42b0
+    - opentelemetry-instrumentation-sqlite3 >=0.42b0
+    - opentelemetry-instrumentation-starlette >=0.42b0
+    - opentelemetry-instrumentation-system-metrics >=0.42b0
+    - opentelemetry-instrumentation-urllib >=0.42b0
+    - opentelemetry-instrumentation-wsgi >=0.42b0
 
 test:
   imports:
